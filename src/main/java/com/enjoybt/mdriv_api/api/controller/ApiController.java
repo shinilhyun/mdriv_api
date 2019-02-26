@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/***
+ *  매개변수 0번째 파라미터는 apiKey or api_key 정보 가지고 있는 request로 할 것
+ */
 @RestController
 @RequestMapping("/api/")
 public class ApiController {
@@ -25,9 +28,6 @@ public class ApiController {
         Map<String, Object> result = new HashMap<>();
 
         try {
-            String apiKey = req.getHeader("api_key");
-            apiService.authenticationApiKey(apiKey);
-
             result.put(Constants.KEY_RESULT, Constants.VALUE_RESULT_SUCCESS);
             result.put(Constants.KEY_DATA, message);
 
@@ -44,14 +44,11 @@ public class ApiController {
 
 
     @GetMapping("test")
-    public Map<String,Object> apiGetTest(HttpServletRequest req,
-                                         @RequestParam(value = "api_key") String apiKey,
+    public Map<String,Object> apiGetTest(@RequestParam(value = "api_key") String apiKey,
                                          @RequestParam(value = "str") String str) {
         Map<String, Object> result = new HashMap<>();
 
         try {
-            apiService.authenticationApiKey(apiKey);
-
             result.put(Constants.KEY_RESULT, Constants.VALUE_RESULT_SUCCESS);
             result.put(Constants.KEY_DATA, str);
 
