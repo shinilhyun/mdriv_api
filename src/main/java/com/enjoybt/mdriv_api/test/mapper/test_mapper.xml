@@ -3,7 +3,9 @@
 
 <mapper namespace="test">
     <select id="test" resultType="java.lang.String">
-        SELECT USER_ID FROM TBL_USER LIMIT 1
+        SELECT USER_ID
+        FROM TBL_USER
+        LIMIT 1
     </select>
 
 </mapper>

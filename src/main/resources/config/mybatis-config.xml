@@ -9,6 +9,7 @@
 	</settings>
 	
 	<typeAliases>
+		<typeAlias type="com.enjoybt.mdriv_api.api.vo.ApiVO" alias="ApiVO"></typeAlias>
 	</typeAliases>
 
 	<mappers>
