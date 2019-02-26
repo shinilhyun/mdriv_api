@@ -18,7 +18,7 @@ public class AthenticationHandler {
     @Autowired
     ApiService apiService;
 
-    @Before("execution(* com.enjoybt.mdriv_api.api.controller.*.*(..))")
+    @Before("execution(* com.enjoybt.mdriv_api.api..*Controller.*(..))")
     public void authenticationApiKey(JoinPoint jp) throws SecurityException, SQLException {
         Object[] obl = jp.getArgs();
         String apiKey = null;

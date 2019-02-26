@@ -13,7 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /***
- *  매개변수 0번째 파라미터는 apiKey or api_key 정보 가지고 있는 request로 할 것
+ *  api_key 인증 aop 처리 (AthenticationHandler)
+ *    매개변수 0번째 파라미터는 api key 정보 가지고 있는 매개변수
+ *    get : String apiKey
+ *    post : api_key 정보 가지고 있는 HttpServletRequest
  */
 @RestController
 @RequestMapping("/api/")
