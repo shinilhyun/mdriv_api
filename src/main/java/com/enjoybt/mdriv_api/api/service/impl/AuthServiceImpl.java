@@ -2,7 +2,7 @@ package com.enjoybt.mdriv_api.api.service.impl;
 
 import com.enjoybt.common.dao.CommonDAO;
 import com.enjoybt.common.exception.KeyAuthorizedException;
-import com.enjoybt.mdriv_api.api.service.ApiService;
+import com.enjoybt.mdriv_api.api.service.AuthService;
 import com.enjoybt.mdriv_api.api.vo.ApiVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import java.sql.SQLException;
 
 @Service
-public class ApiServiceImpl implements ApiService {
+public class AuthServiceImpl implements AuthService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApiService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthService.class);
 
     @Autowired
     CommonDAO commonDAO;
@@ -25,7 +25,7 @@ public class ApiServiceImpl implements ApiService {
         ApiVO apiVO = null;
 
         try {
-            apiVO = (ApiVO)commonDAO.selectOne("api.selectApiInfo",apiKey);
+            apiVO = (ApiVO)commonDAO.selectOne("auth.selectApiKeyInfo",apiKey);
         } catch (Exception e) {
             throw new SQLException("getApiInfo ERROR",e);
         }

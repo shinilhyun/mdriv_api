@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd"> 
 
-<mapper namespace="api">
-    <select id="selectApiInfo" parameterType="java.lang.String" resultType="ApiVO">
+<mapper namespace="auth">
+    <select id="selectApiKeyInfo" parameterType="java.lang.String" resultType="ApiVO">
         SELECT API_SN, USER_ID, API_KEY, API_STATUS, PURPOSE
         FROM TBL_API_INFO
-        WHERE API_KEY = #{API_KEY}
+        WHERE API_KEY = #{apiKey}
     </select>
 
 </mapper>

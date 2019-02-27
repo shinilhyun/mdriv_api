@@ -5,7 +5,7 @@ import com.enjoybt.mdriv_api.api.vo.ApiVO;
 
 import java.sql.SQLException;
 
-public interface ApiService {
+public interface AuthService {
     public ApiVO getApiInfo(String apiKey) throws SQLException;
 
     public void authenticationApiKey(String apiKey) throws SecurityException, SQLException, KeyAuthorizedException;
