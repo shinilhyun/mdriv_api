@@ -13,10 +13,10 @@ import java.util.Map;
 
 /***
  *  api_key 인증 aop 처리 (AthenticationHandler)
- *    get  : api key 매개변수 파라미터명  : apiKey 으로 할 것
- *    post:  매개변수에 HttpServletRequest request 필요
+ *    get  : api key 매개변수명  : apiKey
+ *    post:  api key 매개변수   : HttpServletRequest request
  *
- *    exception 처리 필요 없음(aop 처리)
+ *    controller exception 처리 필요 없음(aop 처리)
  */
 @RestController
 @RequestMapping("/api/")
@@ -24,7 +24,7 @@ public class ApiController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiController.class);
 
     @PostMapping("test")
-    public Map<String,Object> apiTest(HttpServletRequest req, @RequestBody Map<String, Object> message) {
+    public Map<String,Object> apiTest(HttpServletRequest request, @RequestBody Map<String, Object> message) {
         ResultMap result = new ResultMap();
         result.put(Constants.KEY_DATA, message);
         result.setSuccess();
