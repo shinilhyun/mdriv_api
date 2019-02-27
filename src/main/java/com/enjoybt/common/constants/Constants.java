@@ -97,4 +97,32 @@ public class Constants {
 
     /** 세션 종료 시간 30분 */
     public final static Integer SESSION_TIMEOUT = 60*30;
+
+    /**
+     * api 제공 코드 / 메시지
+     */
+    public final static String KEY_RESPONSE_CODE = "RESPONSE_CODE";
+    public final static String KEY_ERROR_MSG = "ERROR_MESSAGE";
+    /** 처리 성공*/
+    public final static String VALUE_CODE_SUCCESS = "200";
+    /** 파라미터 오류*/
+    public final static String VALUE_CODE_BAD_REQUEST = "400";
+    public final static String VALUE_MSG_BAD_REQUEST = "Bad Request";
+    /** 인증 오류 */
+    public final static String VALUE_CODE_UNAUTHORIZED = "401";
+    public final static String VALUE_MSG_UNAUTHORIZED = "Unauthorized";
+    /** 호출 금지*/
+    public final static String VALUE_CODE_FORBIDDEN = "403";
+    public final static String VALUE_MSG_FORBIDDEN = "Forbidden";
+    /** 호출 금지*/
+    public final static String VALUE_CODE_NOTFOUND = "404";
+    public final static String VALUE_MSG_NOTFOUND = "Not Found";
+    /** 호출 한도 초과*/
+    public final static String VALUE_CODE_TOO_MANY_REQUESTS = "429";
+    public final static String VALUE_MSG_TOO_MANY_REQUESTS = "Too Many Request";
+    /** 서버 오류 */
+    public final static String VALUE_CODE_SERVER_ERROR = "500";
+    public final static String VALUE_MSG_SERVER_ERROR = "Internal Server Error";
+
+
 }

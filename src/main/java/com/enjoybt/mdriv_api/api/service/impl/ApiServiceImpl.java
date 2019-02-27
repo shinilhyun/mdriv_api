@@ -1,6 +1,7 @@
 package com.enjoybt.mdriv_api.api.service.impl;
 
 import com.enjoybt.common.dao.CommonDAO;
+import com.enjoybt.common.exception.KeyAuthorizedException;
 import com.enjoybt.mdriv_api.api.service.ApiService;
 import com.enjoybt.mdriv_api.api.vo.ApiVO;
 import org.slf4j.Logger;
@@ -32,12 +33,12 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public void authenticationApiKey(String apiKey) throws SecurityException, SQLException {
+    public void authenticationApiKey(String apiKey) throws SQLException, KeyAuthorizedException {
         ApiVO apiVO = null;
         try {
             apiVO = getApiInfo(apiKey);
             if (apiVO == null) {
-                throw new SecurityException("api key is suck!!");
+                throw new KeyAuthorizedException("api key unauthorized");
             }
         } catch (SQLException se) {
             throw new SQLException("authenticationApiKey ERROR", se);
