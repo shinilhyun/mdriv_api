@@ -157,5 +157,4 @@ fabric.properties
 .idea/httpRequests
 
 logs
-
-
+*.pid
