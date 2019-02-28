@@ -18,7 +18,6 @@ public class TestServiceImpl implements TestService {
     @Override
     public String test() throws Exception {
         String result = null;
-
         try {
             result = (String)commonDAO.selectOne("test.test");
         } catch (Exception e) {

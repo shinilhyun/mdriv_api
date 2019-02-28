@@ -8,6 +8,12 @@ import java.util.Map;
 
 public class ResultMap extends LinkedHashMap<String, Object> {
 
+    public static ResultMap getSuccessResultMap() {
+        ResultMap result = new ResultMap();
+        result.setSuccess();
+        return result;
+    }
+
     public void setSuccess() {
         this.put(Constants.KEY_RESULT, Constants.VALUE_RESULT_SUCCESS);
     }
@@ -50,6 +56,9 @@ public class ResultMap extends LinkedHashMap<String, Object> {
 
 
     public void setData(Map<?, ?> data) {
+        this.put(Constants.KEY_DATA, data);
+    }
+    public void setData(String data) {
         this.put(Constants.KEY_DATA, data);
     }
     public void setList(List<?> list) {

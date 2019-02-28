@@ -2,10 +2,8 @@ package com.enjoybt.mdriv_api.api.controller;
 
 import com.enjoybt.common.ResultMap;
 import com.enjoybt.common.constants.Constants;
-import com.enjoybt.mdriv_api.api.service.AuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,10 +23,8 @@ public class ApiController {
 
     @PostMapping("test")
     public Map<String,Object> apiTest(HttpServletRequest request, @RequestBody Map<String, Object> message) {
-        ResultMap result = new ResultMap();
-        result.put(Constants.KEY_DATA, message);
-        result.setSuccess();
-
+        ResultMap result = ResultMap.getSuccessResultMap();
+        result.setData(message);
         return result;
     }
 
@@ -36,10 +32,8 @@ public class ApiController {
     @GetMapping("test")
     public Map<String,Object> apiGetTest(@RequestParam(value = "api_key") String apiKey,
                                          @RequestParam(value = "str") String str) {
-        ResultMap result = new ResultMap();
-        result.put(Constants.KEY_DATA, str);
-        result.setSuccess();
-
+        ResultMap result = ResultMap.getSuccessResultMap();
+        result.put(Constants.KEY_MSG, str);
         return result;
     }
 }
