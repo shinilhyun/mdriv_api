@@ -1,6 +1,7 @@
 package com.enjoybt.mdriv_api.test.controller;
 
 import com.enjoybt.common.ResultMap;
+import com.enjoybt.mdriv_api.api.service.AuthService;
 import com.enjoybt.mdriv_api.test.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,9 @@ public class TestController {
     @Autowired
     TestService testService;
 
+    @Autowired
+    AuthService authService;
+
     @GetMapping("/")
     public String hello() {
         return "home";
@@ -27,6 +31,7 @@ public class TestController {
     @GetMapping("/test.do")
     @ResponseBody
     public Map<String, Object> test(@RequestParam("api_key") String apiKey) throws Exception {
+        authService.authenticationApiKey(apiKey);
         ResultMap result = ResultMap.getSuccessResultMap();
         result.setData(testService.test());
         return result;

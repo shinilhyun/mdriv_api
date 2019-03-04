@@ -34,15 +34,15 @@ public class AopHandler {
 
     }
 
-    @Before("execution(* com.enjoybt.mdriv_api..*Controller.*(..)) &&" + "args(apiKey,..)")
-    public void authenticationApiKey(String apiKey) throws KeyAuthorizedException, SQLException {
-
-        authService.authenticationApiKey(apiKey);
-    }
-
-    @Before("execution(* com.enjoybt.mdriv_api..*Controller.*(..)) &&" + "args(request,..)")
-    public void authenticationPostApiKey(HttpServletRequest request) throws KeyAuthorizedException, SQLException {
-        String apiKey = request.getHeader("api_key");
-        authService.authenticationApiKey(apiKey);
-    }
+//    @Before("execution(* com.enjoybt.mdriv_api..*Controller.*(..)) &&" + "args(apiKey,..)")
+//    public void authenticationApiKey(String apiKey) throws KeyAuthorizedException, SQLException {
+//
+//        authService.authenticationApiKey(apiKey);
+//    }
+//
+//    @Before("execution(* com.enjoybt.mdriv_api..*Controller.*(..)) &&" + "args(request,..)")
+//    public void authenticationPostApiKey(HttpServletRequest request) throws KeyAuthorizedException, SQLException {
+//        String apiKey = request.getHeader("api_key");
+//        authService.authenticationApiKey(apiKey);
+//    }
 }

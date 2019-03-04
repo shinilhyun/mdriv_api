@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
 @Service
@@ -30,6 +31,12 @@ public class AuthServiceImpl implements AuthService {
             throw new SQLException("getApiInfo ERROR",e);
         }
         return apiVO;
+    }
+
+    @Override
+    public void authenticationApiKey(HttpServletRequest request) throws SQLException, KeyAuthorizedException {
+        String key = request.getHeader("api_key");
+        authenticationApiKey(key);
     }
 
     @Override
