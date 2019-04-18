@@ -48,11 +48,25 @@ public class ResultMap extends LinkedHashMap<String, Object> {
         this.put(Constants.KEY_ERROR_MSG, Constants.VALUE_MSG_NOTFOUND);
     }
 
+    public void setEmptyData(){
+        this.setFailure();
+        this.put(Constants.KEY_RESPONSE_CODE, Constants.VALUE_CODE_EMPTYDATA);
+        this.put(Constants.KEY_ERROR_MSG, Constants.VALUE_MSG_EMPTYDATA);
+    }
+
     public void setBadRequest(){
         this.setFailure();
         this.put(Constants.KEY_RESPONSE_CODE, Constants.VALUE_CODE_BAD_REQUEST);
         this.put(Constants.KEY_ERROR_MSG, Constants.VALUE_MSG_BAD_REQUEST);
     }
+
+    public void setBadParam(){
+        this.setFailure();
+        this.put(Constants.KEY_RESPONSE_CODE, Constants.VALUE_CODE_BADPARAM);
+        this.put(Constants.KEY_ERROR_MSG, Constants.VALUE_MSG_BADPARAM);
+    }
+
+
 
 
     public void setData(Map<?, ?> data) {
@@ -64,6 +78,11 @@ public class ResultMap extends LinkedHashMap<String, Object> {
     public void setList(List<?> list) {
         this.put(Constants.KEY_LIST, list);
     }
+
+    public void setInfo(List<?> list) {
+        this.put("INFO", list);
+    }
+
     public void reset() {
         this.clear();
     }

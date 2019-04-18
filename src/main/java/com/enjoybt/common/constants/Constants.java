@@ -107,22 +107,32 @@ public class Constants {
     public final static String VALUE_CODE_SUCCESS = "200";
     /** 파라미터 오류*/
     public final static String VALUE_CODE_BAD_REQUEST = "400";
-    public final static String VALUE_MSG_BAD_REQUEST = "Bad Request";
+    public final static String VALUE_MSG_BAD_REQUEST = "서버가 요청의 구문을 인식하지 못했습니다. 필수 요청 변수가 빠졌거나 요청변수 이름이 잘못되었습니다.";
     /** 인증 오류 */
     public final static String VALUE_CODE_UNAUTHORIZED = "401";
-    public final static String VALUE_MSG_UNAUTHORIZED = "Unauthorized";
+    public final static String VALUE_MSG_UNAUTHORIZED = "인증키가 유효하지 않습니다. 인증키가 없는 경우, My API > 신규 인증키 발급 메뉴에서 인증키를 신청하십시오.";
     /** 호출 금지*/
     public final static String VALUE_CODE_FORBIDDEN = "403";
-    public final static String VALUE_MSG_FORBIDDEN = "Forbidden";
+    public final static String VALUE_MSG_FORBIDDEN = "서버에서 요청을 거부하고 있습니다.";
     /** 호출 금지*/
     public final static String VALUE_CODE_NOTFOUND = "404";
-    public final static String VALUE_MSG_NOTFOUND = "Not Found";
+    public final static String VALUE_MSG_NOTFOUND = "요청하신 주소를 서버에서 찾을 수 없습니다.";
     /** 호출 한도 초과*/
     public final static String VALUE_CODE_TOO_MANY_REQUESTS = "429";
     public final static String VALUE_MSG_TOO_MANY_REQUESTS = "Too Many Request";
     /** 서버 오류 */
     public final static String VALUE_CODE_SERVER_ERROR = "500";
-    public final static String VALUE_MSG_SERVER_ERROR = "Internal Server Error";
+    public final static String VALUE_MSG_SERVER_ERROR = "서버 오류입니다.지속적으로 발생시 API 담당자에게 문의 바랍니다.";
+
+    /** 데이터 검색결과 비어있음 */
+    public final static String VALUE_CODE_BADPARAM = "910";
+    public final static String VALUE_MSG_BADPARAM = "파라미터 입력 형식이 잘못 되었습니다.";
+
+    /** 데이터 검색결과 비어있음 */
+    public final static String VALUE_CODE_EMPTYDATA = "990";
+    public final static String VALUE_MSG_EMPTYDATA = "검색된 자료가 없습니다. 요청 내용이 잘못 되었거나 결과 자료가 없습니다.";
+
+
 
 
 }

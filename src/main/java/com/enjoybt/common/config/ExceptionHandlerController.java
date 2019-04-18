@@ -1,6 +1,8 @@
 package com.enjoybt.common.config;
 
 import com.enjoybt.common.ResultMap;
+import com.enjoybt.common.exception.BadParamException;
+import com.enjoybt.common.exception.EmptyDataException;
 import com.enjoybt.common.exception.KeyAuthorizedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +48,26 @@ public class ExceptionHandlerController {
         result.setBadRequest();
         return result;
     }
+
+    @ExceptionHandler(EmptyDataException.class)
+    @ResponseBody
+    public Map<String, Object> ServletRequestEmptyDataExceptionHandle(){
+        LOGGER.info("Empty Data 예외 발생");
+        ResultMap result = new ResultMap();
+        result.setEmptyData();
+        return result;
+    }
+
+    @ExceptionHandler(BadParamException.class)
+    @ResponseBody
+    public Map<String, Object> ServletRequestBadParamExceptionHandle(){
+        LOGGER.info("BAD PARAM 예외 발생");
+        ResultMap result = new ResultMap();
+        result.setBadParam();
+        return result;
+    }
+
+
 
     @ExceptionHandler(Exception.class)
     public String exceptionHandle(){

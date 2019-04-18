@@ -32,7 +32,7 @@ public class ApiController {
 
 
     @GetMapping("test")
-    public Map<String,Object> apiGetTest(@RequestParam(value = "api_key") String apiKey,
+    public Map<String,Object> apiGetTest(@RequestParam(value = "apiKey") String apiKey,
                                          @RequestParam(value = "str") String str) throws Exception {
         authService.authenticationApiKey(apiKey);
         ResultMap result = ResultMap.getSuccessResultMap();
