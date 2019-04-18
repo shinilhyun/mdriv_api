@@ -67,8 +67,6 @@ public class ExceptionHandlerController {
         return result;
     }
 
-
-
     @ExceptionHandler(Exception.class)
     public String exceptionHandle(){
         LOGGER.info("기타 예외 발생");
