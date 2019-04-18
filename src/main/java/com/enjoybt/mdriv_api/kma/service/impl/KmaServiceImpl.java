@@ -42,7 +42,7 @@ public class KmaServiceImpl implements KmaService {
             params.put("offset", offset);
             params.put("limit", schListCnt);
 
-            resultList = commonDAO.selectList("kma.selectSfcDY", params);
+            resultList = commonDAO.selectList("kma.selectSfcDy", params);
         } catch (SQLException se) {
             throw new SQLException("SQL ERROR", se);
         } catch (BadParamException be) {
