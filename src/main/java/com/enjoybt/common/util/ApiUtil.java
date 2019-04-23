@@ -17,8 +17,8 @@ public class ApiUtil {
     /**
      * Gets offset.
      *
-     * @param pageIndex  the page index
-     * @param schListCnt the sch list cnt
+     * @param pageIndex  페이지 인덱스
+     * @param schListCnt 자료 갯수 제한 (limit)
      * @return the offset
      * @throws BadParamException the bad param exception
      */
@@ -41,8 +41,8 @@ public class ApiUtil {
 
     /**
      * yyyyMMdd 형식의 날짜 String을 yyyy-MM-dd String으로 변환
-     * @param yyyymmdd the yyyymmdd
-     * @return the hyphen date
+     * @param yyyymmdd 형식의 String
+     * @return yyyy-MM-dd 형식의 String
      * @throws BadParamException the bad param exception
      */
     public static String getHyphenDate(String yyyymmdd) throws BadParamException{

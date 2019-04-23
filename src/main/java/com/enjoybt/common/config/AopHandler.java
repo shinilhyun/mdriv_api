@@ -27,9 +27,9 @@ public class AopHandler {
     public void startLog(JoinPoint jp) {
 
         LOGGER.debug("------------------------------------------");
-        LOGGER.debug("method         :    " + jp.getSignature().getName());
-        LOGGER.debug("Param values   :    " + Arrays.toString(jp.getArgs()));
-        LOGGER.debug("class          :    " + jp.getTarget().getClass().getCanonicalName());
+        LOGGER.debug("METHOD         :    " + jp.getSignature().getName());
+        LOGGER.debug("PARAM VALUES   :    " + Arrays.toString(jp.getArgs()));
+        LOGGER.debug("CLASS          :    " + jp.getTarget().getClass().getCanonicalName());
         LOGGER.debug("------------------------------------------");
 
     }

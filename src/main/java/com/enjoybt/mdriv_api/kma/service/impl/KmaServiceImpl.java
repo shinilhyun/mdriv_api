@@ -28,7 +28,7 @@ public class KmaServiceImpl implements KmaService {
     public List<SfcDyVO> getSfcDy(String startDt, String endDt, String stnIds, String schListCnt, String pageIndex)
         throws Exception {
 
-        List<SfcDyVO> resultList = null;
+        List<SfcDyVO> resultList;
         Map<String, Object> params = new HashMap<>();
 
         try {
