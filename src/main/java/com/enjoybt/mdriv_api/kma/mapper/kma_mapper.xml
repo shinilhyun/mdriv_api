@@ -21,4 +21,21 @@
         </if>
     </select>
 
+    <select id="selectSfcHr" parameterType="java.util.Map" resultType="SfcHrVO">
+        SELECT
+         *
+        FROM
+            TI_KMA_SFC_HR
+        WHERE 1=1
+            and tm like #{target_date} || '%'
+            and stn_id = #{stn_id}::INTEGER
+        ORDER BY TM, STN_ID
+        <if test="offset!=null">
+            OFFSET #{offset}::INTEGER
+        </if>
+        <if test="limit!=null">
+            limit #{limit}::INTEGER
+        </if>
+    </select>
+
 </mapper>

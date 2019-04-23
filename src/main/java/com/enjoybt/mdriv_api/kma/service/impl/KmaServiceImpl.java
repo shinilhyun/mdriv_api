@@ -6,6 +6,7 @@ import com.enjoybt.common.exception.EmptyDataException;
 import com.enjoybt.common.util.ApiUtil;
 import com.enjoybt.mdriv_api.kma.service.KmaService;
 import com.enjoybt.mdriv_api.kma.vo.SfcDyVO;
+import com.enjoybt.mdriv_api.kma.vo.SfcHrVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,28 @@ public class KmaServiceImpl implements KmaService {
         }
         if (resultList.isEmpty()) throw new EmptyDataException();
 
+        return resultList;
+    }
+
+    @Override
+    public List<SfcHrVO> getSfcHr(String tm, String stnIds, String schListCnt, String pageIndex) throws Exception {
+        List<SfcHrVO> resultList;
+        Map<String, Object> params = new HashMap<>();
+
+        try {
+            String offset = ApiUtil.getOffset(pageIndex, schListCnt);
+            String targetDate = ApiUtil.getHyphenDate(tm);
+            params.put("target_date", targetDate);
+            params.put("stn_id", stnIds);
+            params.put("offset", offset);
+            params.put("limit", schListCnt);
+            resultList = commonDAO.selectList("kma.selectSfcHr", params);
+        } catch (SQLException se) {
+            throw new SQLException("SQL ERROR", se);
+        } catch (BadParamException be) {
+            throw new BadParamException(be);
+        }
+        if (resultList.isEmpty()) throw new EmptyDataException();
         return resultList;
     }
 }

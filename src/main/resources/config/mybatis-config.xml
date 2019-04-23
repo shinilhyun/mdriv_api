@@ -11,6 +11,7 @@
 	<typeAliases>
 		<typeAlias type="com.enjoybt.mdriv_api.api.vo.ApiVO" alias="ApiVO"></typeAlias>
 		<typeAlias type="com.enjoybt.mdriv_api.kma.vo.SfcDyVO" alias="SfcDyVO"></typeAlias>
+		<typeAlias type="com.enjoybt.mdriv_api.kma.vo.SfcHrVO" alias="SfcHrVO"></typeAlias>
 	</typeAliases>
 
 	<mappers>
