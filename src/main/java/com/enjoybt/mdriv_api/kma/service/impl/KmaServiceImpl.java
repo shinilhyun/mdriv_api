@@ -7,6 +7,7 @@ import com.enjoybt.common.util.ApiUtil;
 import com.enjoybt.mdriv_api.kma.service.KmaService;
 import com.enjoybt.mdriv_api.kma.vo.SfcDyVO;
 import com.enjoybt.mdriv_api.kma.vo.SfcHrVO;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,7 @@ public class KmaServiceImpl implements KmaService {
         try {
             String offset = ApiUtil.getOffset(pageIndex, schListCnt);
             String targetDate = ApiUtil.getHyphenDate(tm);
+            if(StringUtils.isEmpty(stnIds)) throw new BadParamException();
             params.put("target_date", targetDate);
             params.put("stn_id", stnIds);
             params.put("offset", offset);

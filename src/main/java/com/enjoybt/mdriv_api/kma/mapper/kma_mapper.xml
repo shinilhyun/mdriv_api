@@ -9,14 +9,14 @@
             TI_KMA_SFC_DY
         WHERE 1=1
             and tm BETWEEN #{start_dt} AND #{end_dt}
-          <if test="stn_id != null">
+          <if test="stn_id != null and !stn_id.equals('')">
               and stn_id = #{stn_id}::INTEGER
           </if>
         ORDER BY TM, STN_ID
-        <if test="offset!=null">
+        <if test="offset!=null and !stn_id.equals('')">
             OFFSET #{offset}::INTEGER
         </if>
-        <if test="limit!=null">
+        <if test="limit!=null and !stn_id.equals('')">
             limit #{limit}::INTEGER
         </if>
     </select>
@@ -30,10 +30,10 @@
             and tm like #{target_date} || '%'
             and stn_id = #{stn_id}::INTEGER
         ORDER BY TM, STN_ID
-        <if test="offset!=null">
+        <if test="offset!=null and !stn_id.equals('')">
             OFFSET #{offset}::INTEGER
         </if>
-        <if test="limit!=null">
+        <if test="limit!=null and !stn_id.equals('')">
             limit #{limit}::INTEGER
         </if>
     </select>
